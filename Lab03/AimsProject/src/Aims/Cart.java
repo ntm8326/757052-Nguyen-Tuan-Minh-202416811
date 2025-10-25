@@ -15,6 +15,29 @@ public class Cart {
 			
 		}
 	}
+	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdlist) {
+		int len = dvdlist.length;
+		if (qtyOrdered + len > MAX_NUMBERS_ORDERED) {
+			System.out.println("Can not add these amount of discs");
+		}
+		else {
+			for (int i = 0 ; i < len; i++) {
+				itemsOrdered[qtyOrdered] = dvdlist[i];
+				qtyOrdered++;
+				System.out.println("The disc " + dvdlist[i].getTitle() + " has successfully added!");
+			}
+		}
+	}
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+		if(qtyOrdered + 2 > MAX_NUMBERS_ORDERED) {
+			System.out.println("The cart is almost full.");
+		}
+		else {
+			itemsOrdered[qtyOrdered] = dvd1;
+			itemsOrdered[qtyOrdered+1] = dvd2;
+			System.out.println("Two disc has successfully added");
+		}
+	}
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         boolean isEmpty = true;
         boolean found = false;
