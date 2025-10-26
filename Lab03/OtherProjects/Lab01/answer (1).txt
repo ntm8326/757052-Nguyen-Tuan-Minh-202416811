@@ -1,0 +1,366 @@
+2.2.4 Cal sum, difference, product and quotient of 2 double numbers
+
+import javax.swing.JOptionPane;
+
+public class ShowTwoNumbers{
+    public static void main(String[] args) {
+        String strNum1, strNum2;
+        String strNotification = "You've just entered: ";
+
+        strNum1 = JOptionPane.showInputDialog(
+            null,
+            "Please input the first number:",
+            "Input the first number",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+        strNotification += strNum1 + " and ";
+
+        strNum2 = JOptionPane.showInputDialog(
+            null,
+            "Please input the second number:",
+            "Input the second number",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+        strNotification += strNum2 + '\n';
+        double num1 = Double.parseDouble(strNum1);
+        double num2 = Double.parseDouble(strNum2);
+        strNotification += "sum of two numbers:"  + (num1 + num2) + '\n';
+        strNotification += "difference of two numbers:"  + (num1 - num2) + '\n';
+        strNotification += "product of two numbers:"  + (num1 * num2) + '\n';
+        if (num2 != 0) {
+            strNotification += "quotient of two numbers:"  + (num1 / num2) + '\n';
+        }
+
+        JOptionPane.showMessageDialog(
+            null,
+            strNotification,
+            "Show two numbersm \n",
+            JOptionPane.INFORMATION_MESSAGE
+        );
+
+        System.exit(0);
+    }
+}
+
+
+
+
+2.2.5
+
+import java.util.Scanner;
+
+public class EquationSimple {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("1. ax+b=0\n2. he 2 an\n3. ax^2+bx+c=0\n");
+            int c = sc.nextInt();
+            switch (c) {
+                case 1: {
+                    double a = sc.nextDouble(), b = sc.nextDouble();
+                    if (a == 0) System.out.println(b == 0 ? "vo so nghiem" : "vo nghiem");
+                    else System.out.println("x = " + (-b / a));
+                    break;
+                }
+                case 2: {
+                    double a11 = sc.nextDouble(), a12 = sc.nextDouble(), b1 = sc.nextDouble();
+                    double a21 = sc.nextDouble(), a22 = sc.nextDouble(), b2 = sc.nextDouble();
+                    double D = a11 * a22 - a12 * a21;
+                    double D1 = b1 * a22 - a12 * b2;
+                    double D2 = a11 * b2 - b1 * a21;
+                    if (D != 0) System.out.println("x1=" + (D1 / D) + ", x2=" + (D2 / D));
+                    else System.out.println((D1 == 0 && D2 == 0) ? "vo so nghiem" : "vo nghiem");
+                    break;
+                }
+                case 3: {
+                    double a = sc.nextDouble(), b = sc.nextDouble(), c2 = sc.nextDouble();
+                    if (a == 0) {
+                        if (b == 0) System.out.println(c2 == 0 ? "vo so nghiem" : "vo nghiem");
+                        else System.out.println("x=" + (-c2 / b));
+                    } else {
+                        double d = b * b - 4 * a * c2;
+                        if (d < 0) System.out.println("vo nghiem");
+                        else if (d == 0) System.out.println("nghiem kep x=" + (-b / (2 * a)));
+                        else System.out.println("x1=" + ((-b + Math.sqrt(d)) / (2 * a)) +
+                                                ", x2=" + ((-b - Math.sqrt(d)) / (2 * a)));
+                    }
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+6.1, 
+
+1. If a user clicks Cancel in the Save and Launch dialog 
+- THe launch process is aborted -> The program will not run
+- No files are saved automatically.
+--> Cancel = Do nothing
+2. If you want to limit the dialog to fewer options such as only Yes or No, you can use JOptionPane(Swing) - a library of Java instead of the default IDE dialog.
+
+
+
+
+6.2, 
+import java.util.Scanner;
+public class InputOutput {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        System.out.println("Your name is: " + name);
+        int age = sc.nextInt();
+        System.out.println("Your age is: " + age);
+        sc.close();
+    }
+}
+
+
+
+
+6.3,Write a program to display a triangle with a height of n stars (*), n is entered by users
+import java.util.Scanner;
+public class star {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int row = input.nextInt();
+        for (int i = 1; i <= row; i++){
+            System.out.println(" ".repeat(row-i) + "*".repeat(2*i - 1) + " ".repeat(row-i));
+        }
+    }
+}
+
+
+
+
+6.4,Write a program to display the number of days of a month, which is entered by users (both month and year). If it is an invalid month/year, ask the user to enter again.
+
+import java.util.Scanner;
+public class Main{
+    public static Object get_input(){
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        try
+        {
+            return Integer.parseInt(input);
+        }
+        catch (NumberFormatException e)
+        {
+            return input;
+        }
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int year = -1;
+        while (year < 0)
+        {
+            System.out.print("Enter the year: ");
+            if (sc.hasNextInt()) {
+                year = sc.nextInt();
+                if (year < 0) {
+                    System.out.println("Invalid input. Please try again!");
+                }
+            }
+            else
+            {
+                System.out.println("Invalid input. Please try again!");
+                sc.next();
+
+            }
+        }
+        int day = -1;
+        do {
+            System.out.print("Enter the month: ");
+            Object month = get_input();
+            String typename = month.getClass().getTypeName();
+            if (typename.equals("java.lang.String")) {
+                if (month.equals("January") || month.equals("Jan") || month.equals("Jan.")
+                        || month.equals("March") || month.equals("Mar") || month.equals("Mar.")
+                        || month.equals("May")
+                        || month.equals("July") || month.equals("Jul")
+                        || month.equals("August") || month.equals("Aug") || month.equals("Aug.")
+                        || month.equals("October") || month.equals("Oct") || month.equals("Oct.")
+                        || month.equals("December") || month.equals("Dec") || month.equals("Dec.")) {
+                    day = 31;
+                    System.out.println(day);
+                } else if (month.equals("April") || month.equals("Apr") || month.equals("Apr.")
+                        || month.equals("June") || month.equals("Jun")
+                        || month.equals("September") || month.equals("Sep") || month.equals("Sep.")
+                        || month.equals("November") || month.equals("Nov") || month.equals("Nov.")) {
+                    day = 30;
+                    System.out.println(day);
+                } else if (month.equals("February") || month.equals("Feb") || month.equals("Feb.")) {
+                    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+                        day = 29;
+                        System.out.println(day);
+                    } else {
+                        day = 28;
+                        System.out.println(day);
+                    }
+                } else {
+                    System.out.println("Invalid month. Please try again!");
+                }
+            } else if (typename.equals("java.lang.Integer")) {
+                int m = (Integer) month;
+                if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
+                    day = 31;
+                    System.out.println(day);
+                } else if (m == 4 || m == 6 || m == 9 || m == 11) {
+                    day = 30;
+                    System.out.println(day);
+                } else if (m == 2) {
+                    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+                        day = 29;
+                        System.out.println(day);
+                    } else {
+                        day = 28;
+                        System.out.println(day);
+                    }
+                } else {
+                    System.out.println("Invalid month. Please try again!");
+                }
+            }
+            else
+            {
+                System.out.println("Invalid input. Please try again!");
+
+            }
+        } while (day < 0);
+    }
+}
+
+
+
+
+6.5,Write a Java program to sort a numeric array, and calculate the sum and average value of array elements.
+
+import java.util.Scanner;
+public class Main {
+    static void bubbleSort(int[] arr)
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            boolean swapped = false;
+            for (int j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j+1]) {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+                swapped = true;
+            }
+        }
+        if (swapped == false)
+        {
+            break;
+        }
+        }
+    }
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the length of array: ");
+        int n = input.nextInt();
+        int[] array = new int[n];
+        for (int j = 0; j < n; j++){
+            System.out.print("Enter the element: ");
+            array[j] = input.nextInt();
+        }
+        bubbleSort(array);
+        int sum = 0;
+        for (int i = 0; i < array.length; i++){
+            System.out.print(array[i] + " ");
+            sum += array[i];
+        }
+        System.out.println();
+        int average = sum / array.length;
+        System.out.println(sum);
+        System.out.println(average);
+    }
+}
+
+
+
+
+6.6, Add 2 matrices of the same size.
+
+1st, add 2 matrices
+import java.util.Scanner;
+public class part2 {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of row: ");
+        int row = input.nextInt();
+        System.out.print("Enter the number of column: ");
+        int col = input.nextInt();
+        int[][] matrix1 = new int[row][col];
+        int[][] matrix2 = new int[row][col];
+        int[][] matrix3 = new int[row][col];
+        for (int i = 0; i < row ; i++){
+            for (int j = 0; j < col; j++){
+                System.out.printf("Enter the matrix1[%s][%s]: ", i, j); //Input ith, jth element of matrix1
+                matrix1[i][j] = input.nextInt();
+                System.out.printf("Enter the matrix2[%s][%s]: ", i, j); //Input ith, jth element of matrix1
+                matrix2[i][j] = input.nextInt();
+                matrix3[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+        for (int i = 0; i < row; i++){
+            for (int j = 0; j < col; j++){
+                System.out.print(matrix3[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+2nd, product of 2 matrices
+
+import java.util.Scanner;
+public class part2 {
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the number of row 1: ");
+        int R1 = input.nextInt();
+        System.out.print("Enter the number of column 1: ");
+        int C1 = input.nextInt();
+        System.out.print("Enter the number of row 2: ");
+        int R2 = input.nextInt();
+        System.out.print("Enter the number of column 2: ");
+        int C2 = input.nextInt();
+        int[][] matrix1 = new int[R1][C1];
+        int[][] matrix2 = new int[R2][C2];
+        if(C1 != R2){
+            System.out.println("Can not find product of matrix1 and matrix2");
+            return;
+        }
+        int[][] matrix3 = new int[R1][C2];
+        for (int i1 = 0; i1 < R1 ; i1++){
+            for (int j1 = 0; j1 < C1; j1++){
+                System.out.printf("Enter the matrix1[%s][%s]: ", i1, j1); //Input ith, jth element of matrix1
+                matrix1[i1][j1] = input.nextInt();
+            }
+        }
+        for (int i2 = 0; i2 < R2 ; i2++){
+            for (int j2 = 0; j2 < C2; j2++){
+                System.out.printf("Enter the matrix1[%s][%s]: ", i2, j2); //Input ith, jth element of matrix1
+                matrix2[i2][j2] = input.nextInt();
+            }
+        }
+        for (int i = 0; i < R1; i++) {
+            for (int j = 0; j < C2; j++) {
+                for (int k = 0; k < R2; k++) {
+                    matrix3[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+        }
+    }
+        for (int i = 0; i < R1; i++){
+            for (int j = 0; j < C2; j++){
+                System.out.print(matrix3[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+

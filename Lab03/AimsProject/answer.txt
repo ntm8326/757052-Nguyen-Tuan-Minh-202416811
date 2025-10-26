@@ -1,0 +1,16 @@
+3,Passing parameter
+Is JAVA a pass-by-value or a pass-by-reference programming language?
+
+Primitives: pass by value
+Objects: reference is passed by value (copied reference). Mutations affect the original object; reassignment does not affect the caller’s reference.
+
+
+After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+
+The swap method only reassigns the method’s local reference variables. Those reassignments change the copies of the references inside the method and do not affect the caller’s variables. The caller’s references still point to the original DVD objects, so their titles remain unchanged.
+
+
+After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+
+changeTitle receives a copy of the reference to the jungleDVD object and then uses that reference to call a mutator (setter) on the actual object. Mutating the object via the reference affects the single object that both caller and callee refer to, so the change is visible to the caller.
+
