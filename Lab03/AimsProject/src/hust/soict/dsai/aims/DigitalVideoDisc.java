@@ -1,6 +1,8 @@
-package Aims;
+package hust.soict.dsai.aims;
 
 public class DigitalVideoDisc {
+	private static int nbDigitalVideoDiscs = 0;
+	private int id;
 	private String title;
 	private String category;
 	private String director;
@@ -39,12 +41,16 @@ public class DigitalVideoDisc {
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
+		nbDigitalVideoDiscs++;
+		this.id = nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String category, String title, float cost) {
 		super();
 		this.category = category;
 		this.title = title;
 		this.cost = cost;
+		nbDigitalVideoDiscs++;
+		this.id = nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String director, String category, String title, float cost) {
 		super();
@@ -52,6 +58,8 @@ public class DigitalVideoDisc {
 		this.category = category;
 		this.title = title;
 		this.cost = cost;
+		nbDigitalVideoDiscs++;
+		this.id = nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
@@ -60,5 +68,25 @@ public class DigitalVideoDisc {
 		this.director = director;
 		this.length = length;
 		this.cost = cost;
+		nbDigitalVideoDiscs++;
+		this.id = nbDigitalVideoDiscs;
 	}
+	 public String toString() {
+	        return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
+	        }
+	 public boolean isMatch(String title) {
+	        return this.title.equalsIgnoreCase(title);
+	        }
+	 public static int getNbDigitalVideoDiscs() {
+		 return nbDigitalVideoDiscs;
+	 }
+	 public static void setNbDigitalVideoDiscs(int nbDigitalVideoDiscs) {
+		 DigitalVideoDisc.nbDigitalVideoDiscs = nbDigitalVideoDiscs;
+	 }
+	 public int getId() {
+		 return id;
+	 }
+	 public void setId(int id) {
+		 this.id = id;
+	 }
 }

@@ -1,4 +1,4 @@
-package Aims;
+package hust.soict.dsai.aims;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
