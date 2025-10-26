@@ -1,4 +1,4 @@
-package hust.soict.dsai.aims;
+package aims;
 
 public class Store {
 	public static final int MAX_NUMBERS_IN_STORE = 100;
