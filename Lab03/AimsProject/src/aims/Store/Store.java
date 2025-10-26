@@ -1,4 +1,6 @@
-package aims;
+package aims.Store;
+
+import aims.Disc.DigitalVideoDisc;
 
 public class Store {
 	public static final int MAX_NUMBERS_IN_STORE = 100;
@@ -32,6 +34,13 @@ public class Store {
         if (!found) {
             System.out.println("The DVD \"" + disc.getTitle() + "\" is not found in the store.");
         }
+    }
+    public void printStore() {
+        System.out.println("***********************STORE***********************");
+        for (int i = 0; i < qtyInStore; i++) {
+            System.out.println((i + 1) + ". " + itemsInStore[i].toString());
+        }
+        System.out.println("***************************************************");
     }
 
 }

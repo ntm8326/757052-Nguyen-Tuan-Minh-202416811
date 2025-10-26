@@ -1,0 +1,24 @@
+Question: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category.
+Does JAVA allow you to do this?
+
+Answer:
+Assuming the two mentioned constructor methods are built as following:
+
+public DVD(String title) {
+    super();
+	this.title = title;
+}
+
+and
+
+public DVD(String category) {
+    super();
+	this.category = category;
+}
+
+This WILL RAISE AN ERROR because the compiler only takes into consideration the parameter list or 'signature' (in this case, only String),
+and ignores the variable name (title and category). So, the compiler would have no way to know whether 'new DVD("ABC")' is meant to
+call the title constructor for a movie titled 'ABC' or the category constructor for a movie in the 'ABC' category.
+
+However, multiple constructors in one class is still possible if the parameter lists distinguish from each other.
+This is already done in my DigitalVideosDics.java, where I have 4 different constructors.
