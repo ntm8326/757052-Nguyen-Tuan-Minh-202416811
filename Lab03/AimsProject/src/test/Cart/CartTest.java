@@ -1,6 +1,6 @@
 package test.Cart;
 import aims.Cart.Cart;
-import aims.Disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class CartTest {
 	public static void main(String[] args) {
