@@ -19,14 +19,18 @@ public class Book extends Media {
 		setCost(cost);
 	}
 	public void addAuthor(String author) {
+		boolean exist = false;
 		for(String name : authors) {
 			if (name.equals(author)) {
-				System.out.println("Author's name has already existed!");
+				exist = true;
+				break;
 			}
-			else {
-				authors.add(author);
-			}
-			
+		}
+		if(exist) {
+			System.out.println("The author's name is already existed!");
+		}
+		else {
+			authors.add(author);
 		}
 	}
 	public void removeAuthor(String author) {
