@@ -30,4 +30,13 @@ public abstract class Media {
 		this.cost = cost;
 	}
 	public abstract String toString();
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Media) {
+			Media other = (Media) obj;
+	        return this.title == other.title;
+	    }
+		return false;
+	}
+	
 }
