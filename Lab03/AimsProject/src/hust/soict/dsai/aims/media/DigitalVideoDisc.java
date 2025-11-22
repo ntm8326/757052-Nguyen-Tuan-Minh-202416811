@@ -35,6 +35,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		nbDigitalVideoDiscs++;
 		setId(nbDigitalVideoDiscs);
 	}
+	@Override
 	 public String toString() {
 	        return "DVD - " + getTitle() + " - " + getCategory() + " - " + getDirector() + " - " + getLength() + ": " + getCost() + " $";
 	        }

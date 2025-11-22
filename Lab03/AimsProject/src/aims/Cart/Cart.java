@@ -6,19 +6,7 @@ import hust.soict.dsai.aims.media.DigitalVideoDisc;
 public class Cart {
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	public void addMedia(Media media) {
-		boolean exist = false;
-		for(Media item : itemsOrdered) {
-			if (item.equals(media)) {
-				exist = true;
-				break;
-			}
-		}
-		if(exist) {
-			System.out.println("The item is already existed!");
-		}
-		else {
-			itemsOrdered.add(media);
-		}
+		itemsOrdered.add(media);
 	}
 	public void removeMedia(Media media) {
 		if( itemsOrdered.size() == 0){
@@ -62,28 +50,5 @@ public class Cart {
         }
         System.out.println("Total cost: " + totalCost() + " $");
         System.out.println("***************************************************");
-    }
-
-    public void searchById(int id) {
-        boolean found = false;
-        for (Media media : itemsOrdered) {
-            if (media.getId() == id) {
-                System.out.println("Found: " + media);
-                found = true;
-                break;
-            }
-        }
-        if (!found) System.out.println("No match for ID: " + id);
-    }
-
-    public void searchByTitle(String title) {
-        boolean found = false;
-        for (Media media : itemsOrdered) {
-            if (media.isMatch(title)) {
-                System.out.println("Found: " + media);
-                found = true;
-            }
-        }
-        if (!found) System.out.println("No match for title: " + title);
     }
 }
