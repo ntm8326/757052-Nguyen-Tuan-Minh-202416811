@@ -1,15 +1,15 @@
 package aims;
 import java.util.Scanner;
+import hust.soict.dsai.aims.media.*;
 
 import aims.Cart.Cart;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 import java.util.HashMap;
 import java.util.Map;
 public class Aims {
-	public static void showAvailableDiscs(Map<String, DigitalVideoDisc> dvdMap) {
+	public static void showAvailableDiscs(Map<String, Media> dvdMap) {
 	    System.out.println("Available DVDs:");
-	    for (Map.Entry<String, DigitalVideoDisc> entry : dvdMap.entrySet()) {
+	    for (Map.Entry<String, Media> entry : dvdMap.entrySet()) {
 	        System.out.println(entry.getKey() + " - " + entry.getValue().getTitle());
 	    }
 	}
@@ -36,7 +36,7 @@ public class Aims {
 		DigitalVideoDisc dvd19 = new DigitalVideoDisc("Joker", "Drama", "Todd Phillips", 122, 20.99f);
 		DigitalVideoDisc dvd20 = new DigitalVideoDisc("Parasite", "Thriller", "Bong Joon-ho", 132, 21.50f);
 		DigitalVideoDisc dvd21 = new DigitalVideoDisc("La La Land", "Musical", "Damien Chazelle", 128, 18.99f);
-		Map<String, DigitalVideoDisc> dvdMap = new HashMap<>();
+		Map<String, Media> dvdMap = new HashMap<>();
 		dvdMap.put("dvd1", dvd1);
 		dvdMap.put("dvd2", dvd2);
 		dvdMap.put("dvd3", dvd3);
@@ -78,87 +78,87 @@ public class Aims {
 					String dvd = sc.nextLine().trim().toLowerCase();
 					switch (dvd) {
 					case "dvd1":
-						anOrder.addDigitalVideoDisc(dvd1);
+						anOrder.addMedia(dvd1);
 						hasDisc = true;
 						break;
 					case "dvd2":
-						anOrder.addDigitalVideoDisc(dvd2);
+						anOrder.addMedia(dvd2);
 						hasDisc = true;
 						break;
 					case "dvd3":
-						anOrder.addDigitalVideoDisc(dvd3);
+						anOrder.addMedia(dvd3);
 						hasDisc = true;
 						break;
 					case "dvd4":
-						anOrder.addDigitalVideoDisc(dvd4);
+						anOrder.addMedia(dvd4);
 						hasDisc = true;
 						break;
 					case "dvd5":
-						anOrder.addDigitalVideoDisc(dvd5);
+						anOrder.addMedia(dvd5);
 						hasDisc = true;
 						break;
 					case "dvd6":
-						anOrder.addDigitalVideoDisc(dvd6);
+						anOrder.addMedia(dvd6);
 						hasDisc = true;
 						break;
 					case "dvd7":
-						anOrder.addDigitalVideoDisc(dvd7);
+						anOrder.addMedia(dvd7);
 						hasDisc = true;
 						break;
 					case "dvd8":
-						anOrder.addDigitalVideoDisc(dvd8);
+						anOrder.addMedia(dvd8);
 						hasDisc = true;
 						break;
 					case "dvd9":
-						anOrder.addDigitalVideoDisc(dvd9);
+						anOrder.addMedia(dvd9);
 						hasDisc = true;
 						break;
 					case "dvd10":
-						anOrder.addDigitalVideoDisc(dvd10);
+						anOrder.addMedia(dvd10);
 						hasDisc = true;
 						break;
 					case "dvd11":
-						anOrder.addDigitalVideoDisc(dvd11);
+						anOrder.addMedia(dvd11);
 						hasDisc = true;
 						break;
 					case "dvd12":
-						anOrder.addDigitalVideoDisc(dvd12);
+						anOrder.addMedia(dvd12);
 						hasDisc = true;
 						break;
 					case "dvd13":
-						anOrder.addDigitalVideoDisc(dvd13);
+						anOrder.addMedia(dvd13);
 						hasDisc = true;
 						break;
 					case "dvd14":
-						anOrder.addDigitalVideoDisc(dvd14);
+						anOrder.addMedia(dvd14);
 						hasDisc = true;
 						break;
 					case "dvd15":
-						anOrder.addDigitalVideoDisc(dvd15);
+						anOrder.addMedia(dvd15);
 						hasDisc = true;
 						break;
 					case "dvd16":
-						anOrder.addDigitalVideoDisc(dvd16);
+						anOrder.addMedia(dvd16);
 						hasDisc = true;
 						break;
 					case "dvd17":
-						anOrder.addDigitalVideoDisc(dvd17);
+						anOrder.addMedia(dvd17);
 						hasDisc = true;
 						break;
 					case "dvd18":
-						anOrder.addDigitalVideoDisc(dvd18);
+						anOrder.addMedia(dvd18);
 						hasDisc = true;
 						break;
 					case "dvd19":
-						anOrder.addDigitalVideoDisc(dvd19);
+						anOrder.addMedia(dvd19);
 						hasDisc = true;
 						break;
 					case "dvd20":
-						anOrder.addDigitalVideoDisc(dvd20);
+						anOrder.addMedia(dvd20);
 						hasDisc = true;
 						break;
 					case "dvd21":
-						anOrder.addDigitalVideoDisc(dvd21);
+						anOrder.addMedia(dvd21);
 						hasDisc = true;
 						break;
 					default:
@@ -174,67 +174,67 @@ public class Aims {
 				String dvd = sc.nextLine().trim().toLowerCase();
 				switch (dvd) {
 				case "dvd1":
-					anOrder.removeDigitalVideoDisc(dvd1);
+					anOrder.removeMedia(dvd1);
 					break;
 				case "dvd2":
-					anOrder.removeDigitalVideoDisc(dvd2);
+					anOrder.removeMedia(dvd2);
 					break;
 				case "dvd3":
-					anOrder.removeDigitalVideoDisc(dvd3);
+					anOrder.removeMedia(dvd3);
 					break;
 				case "dvd4":
-					anOrder.removeDigitalVideoDisc(dvd4);
+					anOrder.removeMedia(dvd4);
 					break;
 				case "dvd5":
-					anOrder.removeDigitalVideoDisc(dvd5);
+					anOrder.removeMedia(dvd5);
 					break;
 				case "dvd6":
-					anOrder.removeDigitalVideoDisc(dvd6);
+					anOrder.removeMedia(dvd6);
 					break;
 				case "dvd7":
-					anOrder.removeDigitalVideoDisc(dvd7);
+					anOrder.removeMedia(dvd7);
 					break;
 				case "dvd8":
-					anOrder.removeDigitalVideoDisc(dvd8);
+					anOrder.removeMedia(dvd8);
 					break;
 				case "dvd9":
-					anOrder.removeDigitalVideoDisc(dvd9);
+					anOrder.removeMedia(dvd9);
 					break;
 				case "dvd10":
-					anOrder.removeDigitalVideoDisc(dvd10);
+					anOrder.removeMedia(dvd10);
 					break;
 				case "dvd11":
-					anOrder.removeDigitalVideoDisc(dvd11);
+					anOrder.removeMedia(dvd11);
 					break;
 				case "dvd12":
-					anOrder.removeDigitalVideoDisc(dvd12);
+					anOrder.removeMedia(dvd12);
 					break;
 				case "dvd13":
-					anOrder.removeDigitalVideoDisc(dvd13);
+					anOrder.removeMedia(dvd13);
 					break;
 				case "dvd14":
-					anOrder.removeDigitalVideoDisc(dvd14);
+					anOrder.removeMedia(dvd14);
 					break;
 				case "dvd15":
-					anOrder.removeDigitalVideoDisc(dvd15);
+					anOrder.removeMedia(dvd15);
 					break;
 				case "dvd16":
-					anOrder.removeDigitalVideoDisc(dvd16);
+					anOrder.removeMedia(dvd16);
 					break;
 				case "dvd17":
-					anOrder.removeDigitalVideoDisc(dvd17);
+					anOrder.removeMedia(dvd17);
 					break;
 				case "dvd18":
-					anOrder.removeDigitalVideoDisc(dvd18);
+					anOrder.removeMedia(dvd18);
 					break;
 				case "dvd19":
-					anOrder.removeDigitalVideoDisc(dvd19);
+					anOrder.removeMedia(dvd19);
 					break;
 				case "dvd20":
-					anOrder.removeDigitalVideoDisc(dvd20);
+					anOrder.removeMedia(dvd20);
 					break;
 				case "dvd21":
-					anOrder.removeDigitalVideoDisc(dvd21);
+					anOrder.removeMedia(dvd21);
 					break;
 					}
 				break;
