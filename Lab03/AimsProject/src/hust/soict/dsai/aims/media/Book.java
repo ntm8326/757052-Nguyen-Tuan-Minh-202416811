@@ -18,6 +18,12 @@ public class Book extends Media {
 		setCategory(category);
 		setCost(cost);
 	}
+	public Book(String title, String category, float cost) {
+		super();
+		setTitle(title);
+		setCategory(category);
+		setCost(cost);
+	}
 	public void addAuthor(String author) {
 		boolean exist = false;
 		for(String name : authors) {
