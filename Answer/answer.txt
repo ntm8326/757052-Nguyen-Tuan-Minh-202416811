@@ -1,0 +1,38 @@
+To use the Comparable interface for sorting items in your cart (instead of the Comparator approach), here is how you should structure your code.
+
+1. What class should implement the Comparable interface?
+The class that represents the data object itself must implement the interface.
+
+If you have a parent class representing all items in the cart (e.g., Media) and specific subclasses (like Book, DigitalVideoDisc, or CompactDisc), you should implement Comparable in the parent class (Media).
+
+Why: This defines the "natural ordering" for that object type. By putting it in the parent class Media, you ensure that all types of media can be compared against one another (e.g., comparing a Book to a DVD based on the title).
+
+The Class Signature:
+public class Media implements Comparable<Media> {
+
+}
+
+
+2. How should you implement the compareTo() method?
+The compareTo() method determines the sorting logic. It returns an integer indicating whether the current object (this) is smaller, equal to, or larger than the object being compared (other).
+
+Negative value: this is ordered before other.
+
+Zero: this and other are equal.
+
+Positive value: this is ordered after other.
+
+Example Scenario
+Let's assume the requirement is to sort by Title alphabetically. If the titles are the same, sort by Cost (highest cost first).
+
+The Implementation:
+@Override
+public int compareTo(Media other) {
+    int titleComparison = this.getTitle().compareTo(other.getTitle());
+    if (titleComparison != 0) {
+        return titleComparison;
+    }
+    return Double.compare(other.getCost(), this.getCost());
+}
+
+
