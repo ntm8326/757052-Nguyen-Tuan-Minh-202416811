@@ -9,7 +9,7 @@ public class Track implements Playable {
 	public String getTitle() {
 		return title;
 	}
-	public Track(int length, String title) {
+	public Track(String title, int length) {
 		super();
 		this.length = length;
 		this.title = title;

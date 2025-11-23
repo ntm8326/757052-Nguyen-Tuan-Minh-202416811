@@ -2,29 +2,6 @@ package hust.soict.dsai.aims.media;
 
 public class DigitalVideoDisc extends Disc implements Playable {
 	private static int nbDigitalVideoDiscs = 0;
-	public DigitalVideoDisc(String title) {
-		super();
-		setTitle(title);
-		nbDigitalVideoDiscs++;
-		setId(nbDigitalVideoDiscs);
-	}
-	public DigitalVideoDisc(String category, String title, float cost) {
-		super();
-		setCategory(category);
-		setTitle(title);
-		setCost(cost);
-		nbDigitalVideoDiscs++;
-		setId(nbDigitalVideoDiscs);
-	}
-	public DigitalVideoDisc(String director, String category, String title, float cost) {
-		super();
-		setDirector(director);
-		setCategory(category);
-		setTitle(title);
-		setCost(cost);
-		nbDigitalVideoDiscs++;
-		setId(nbDigitalVideoDiscs);
-	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
 		setTitle(title);
@@ -34,6 +11,9 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		setCost(cost);
 		nbDigitalVideoDiscs++;
 		setId(nbDigitalVideoDiscs);
+	}
+	public DigitalVideoDisc(String title) {
+		setTitle(title);
 	}
 	@Override
 	 public String toString() {

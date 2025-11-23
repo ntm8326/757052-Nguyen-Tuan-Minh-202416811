@@ -1,8 +1,8 @@
 package aims.Cart;
 import java.util.ArrayList;
-import hust.soict.dsai.aims.media.Media;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
+
+import hust.soict.dsai.aims.media.Media;
 public class Cart {
 	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 	public void addMedia(Media media) {
@@ -51,4 +51,13 @@ public class Cart {
         System.out.println("Total cost: " + totalCost() + " $");
         System.out.println("***************************************************");
     }
+    public void emptyCart() {
+        itemsOrdered.clear();
+    }
+	public ArrayList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
+	public void setItemsOrdered(ArrayList<Media> itemsOrdered) {
+		this.itemsOrdered = itemsOrdered;
+	}
 }
