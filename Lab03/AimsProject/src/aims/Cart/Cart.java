@@ -1,63 +1,81 @@
 package aims.Cart;
-import java.util.ArrayList;
 
+import java.util.Iterator;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import hust.soict.dsai.aims.media.Media;
+
 public class Cart {
-	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
-	public void addMedia(Media media) {
-		itemsOrdered.add(media);
-	}
-	public void removeMedia(Media media) {
-		if( itemsOrdered.size() == 0){
-			System.out.println("The order had no name yet");
-		}
-		else {
-			boolean found = false;
-			for(Media item : itemsOrdered) {
-				if (item.equals(media)) {
-					itemsOrdered.remove(media);
-					found = true;
-					break;
-				}
-			}
-			if(!found) {
-				System.out.println("The item has not been in the list yet!");
-			}
-		}
-	}
-	public float totalCost() {
-		float total = 0;
-		for(Media media : itemsOrdered) {
-			total += media.getCost();
-		}
-		return total;
-	}
-	public void printInfo() {
-		int i = 1;
-		for(Media media : itemsOrdered) {
-			System.out.println((i)+"   "+(media.getTitle())+"  "+ (media.getCost()) );
-			i++;
-		}
-	}
+
+    // DÙNG ObservableList THAY VÌ ArrayList
+    private ObservableList<Media> itemsOrdered =
+            FXCollections.observableArrayList();
+
+    public void addMedia(Media media) {
+        itemsOrdered.add(media);
+    }
+
+    public void removeMedia(Media media) {
+        if (itemsOrdered.isEmpty()) {
+            System.out.println("The order had no item yet");
+        } else {
+            boolean found = false;
+            Iterator<Media> iterator = itemsOrdered.iterator();
+            while (iterator.hasNext()) {
+                Media item = iterator.next();
+                if (item.equals(media)) {
+                    iterator.remove();
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                System.out.println("The item has not been in the list yet!");
+            }
+        }
+    }
+
+    public float totalCost() {
+        float total = 0;
+        for (Media media : itemsOrdered) {
+            total += media.getCost();
+        }
+        return total;
+    }
+
+    public void printInfo() {
+        int i = 1;
+        for (Media media : itemsOrdered) {
+            System.out.println(i + "   " + media.getTitle() + "  " + media.getCost());
+            i++;
+        }
+    }
+
     public void print() {
         System.out.println("***********************CART***********************");
         System.out.println("Ordered Items:");
         int i = 1;
         for (Media media : itemsOrdered) {
-            System.out.println((i) + ". " + media.toString());
+            System.out.println(i + ". " + media.toString());
             i++;
         }
         System.out.println("Total cost: " + totalCost() + " $");
         System.out.println("***************************************************");
     }
+
     public void emptyCart() {
         itemsOrdered.clear();
     }
-	public ArrayList<Media> getItemsOrdered() {
-		return itemsOrdered;
-	}
-	public void setItemsOrdered(ArrayList<Media> itemsOrdered) {
-		this.itemsOrdered = itemsOrdered;
-	}
+
+    // QUAN TRỌNG: TRẢ VỀ ObservableList
+    public ObservableList<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
+
+    public void setItemsOrdered(ObservableList<Media> itemsOrdered) {
+        this.itemsOrdered = itemsOrdered;
+    }
 }
+

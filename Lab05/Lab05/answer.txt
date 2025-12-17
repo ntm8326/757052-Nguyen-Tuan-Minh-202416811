@@ -1,0 +1,30 @@
+Question: Is JAVA a Pass by Value or a Pass by Reference programming language?
+
+Answer: JAVA is a Pass-by-value programming language.
+
+This is easily seen when passing primitive types (boolean, integer, etc.), but seems, at first glance (at least to me) somewhat counter-intuitive when
+it comes to objects.
+
+This is because in JAVA, a variable for an object does not hold the object itself, but rather a reference to where the object is stored in the computer's
+memory, or in a more imaginable term, the key to a house. So, when you pass an object to a method, what is copied is not the object, but rather the reference
+to that object (i.e. create another key to the same house).
+
+When you use 1 key to enter the house and change something in it (i.e. modify the object):
+
+public static void modify(Object referenceCopy) {
+    modify referenceCopy... 
+}
+
+Anyone else with a key can obviously see these changes. So, you changed the object (what the value points to), not the reference (the value)
+
+When you reassign the duplicated key to use for a new house (i.e. reassign the variable to another object):
+
+public static void reassign(Object referenceCopy) {
+    referenceCopy = new Object(...);
+}
+
+The original reference (the original key) is still pointing to the initial object.
+If Java were "pass-by-reference," changing the copy to a new object would have also changed the original variable. It does not.
+
+This proof is based on my own testing using StringBuilder, but the code is rather long so I would prefer not include it here. I hope this doesn't affect
+the credibility of my proof :>

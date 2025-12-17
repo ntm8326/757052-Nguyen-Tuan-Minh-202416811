@@ -1,0 +1,6 @@
+1. Choosing 'cancel' returns No, meaning 'cancel' gives the default value which is NO_OPTION if not specified otherwise.
+
+2. We can limit the option down to just yes/no by adding optiontype JOptionPane.YES_NO_OPTION to the showConfirmationDialog.
+We can also change the option to "I do/I don't" by switching to showOptionDialog and create an array of custom labels
+{"I do", "I don't"} for the buttons
+

@@ -1,0 +1,5 @@
+The Aims class must be updated to handle any exceptions generated when the play() methods are called. What happens when you don’t update for them to catch?
+
+Answer: the code will immediately fail to compile and you will see an error in your terminal that will say: "Unhandled exception type PlayerException"
+
+This happens because PlayerException is a "Checked Exception", meaning java strictly requires that any method calling play() must explicitly handle that potential error.
